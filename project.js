@@ -19,7 +19,11 @@
  * sumOdds([3, 7, 8, 15, 2, 1, 13]) -> 39
  */
 function sumOdds(numbers) {
-  // Your code here
+  const odds = numbers.filter((number) => number % 2 !== 0);
+
+  let sum = 0;
+  odds.forEach((odd) => (sum += odd));
+  return sum;
 }
 
 /**
@@ -35,7 +39,14 @@ function sumOdds(numbers) {
  * Hint: Use string methods to make it case-insensitive
  */
 function characterCount(string, c) {
-  // Your code here
+  let counter = 0;
+
+  for (let i = 0; i < string.length; i++) {
+    if (string.charAt(i) === c) {
+      counter++;
+    }
+  }
+  return counter;
 }
 
 /**
@@ -149,8 +160,8 @@ function reverseString(string) {
   // Your code here
 }
 
-// console.log(sumOdds([3, 7, 8, 15, 2, 1, 13]));
-// console.log(characterCount("Character Count is clever", "c"));
+console.log(sumOdds([3, 7, 8, 15, 2, 1, 13]));
+console.log(characterCount("Character Count is clever", "c"));
 // console.log(differences([11, 35, 52, 14, 56]));
 // console.log(largestIncrement([11, 35, 52, 14, 56, 601, 777, 888, 999]));
 // console.log(afterX([1, 2, 3, 4, 5, 6, 7, 8, 9], 3));
