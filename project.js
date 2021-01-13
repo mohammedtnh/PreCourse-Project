@@ -42,7 +42,7 @@ function characterCount(string, c) {
   let counter = 0;
 
   for (let i = 0; i < string.length; i++) {
-    if (string.charAt(i) === c) {
+    if (string.toLowerCase().charAt(i) === c.toLowerCase()) {
       counter++;
     }
   }
@@ -65,7 +65,12 @@ function characterCount(string, c) {
  * differences([11, 35, 52, 14, 56]) -> [24,  17, -38,  42]
  */
 function differences(numbers) {
-  // Your code here
+  let results = [];
+
+  for (let i = 0; i < numbers.length - 1; i++) {
+    results.push(numbers[i + 1] - numbers[i]);
+  }
+  return results;
 }
 
 /**
@@ -85,7 +90,7 @@ function differences(numbers) {
  * largestIncrement([11, 35, 52, 14, 56, 601, 777, 888, 999]) -> 545
  */
 function largestIncrement(numbers) {
-  // Your code here
+  return Math.max(...differences(numbers));
 }
 
 /**
@@ -100,7 +105,9 @@ function largestIncrement(numbers) {
  * afterX([11, 35, 52, 14, 56, 601, 777, 888, 999], 52) -> [14, 56, 601, 777, 888, 999]
  */
 function afterX(numbers, x) {
-  // Your code here
+  const i = numbers.findIndex((element) => element === x);
+  const afterXArray = numbers.slice(i + 1);
+  return afterXArray;
 }
 
 /**
@@ -115,7 +122,7 @@ function afterX(numbers, x) {
  * Hint: Use string method .toUpperCase()
  */
 function abbreviate(firstName, lastName) {
-  // Your code here
+  return `${firstName[0]}${lastName[0]}`.toUpperCase();
 }
 
 /**
@@ -129,7 +136,7 @@ function abbreviate(firstName, lastName) {
  *
  */
 function isUpperCase(string) {
-  // Your code here
+  return string === string.toUpperCase();
 }
 
 /**
@@ -143,7 +150,7 @@ function isUpperCase(string) {
  *
  */
 function elementInArray(numbers, x) {
-  // Your code here
+  return numbers.includes(x);
 }
 
 /**
@@ -157,11 +164,11 @@ function elementInArray(numbers, x) {
  *
  */
 function reverseString(string) {
-  // Your code here
+  return string.split("").reverse().join("");
 }
 
-console.log(sumOdds([3, 7, 8, 15, 2, 1, 13]));
-console.log(characterCount("Character Count is clever", "c"));
+// console.log(sumOdds([3, 7, 8, 15, 2, 1, 13]));
+// console.log(characterCount("Character Count is clever", "c"));
 // console.log(differences([11, 35, 52, 14, 56]));
 // console.log(largestIncrement([11, 35, 52, 14, 56, 601, 777, 888, 999]));
 // console.log(afterX([1, 2, 3, 4, 5, 6, 7, 8, 9], 3));
